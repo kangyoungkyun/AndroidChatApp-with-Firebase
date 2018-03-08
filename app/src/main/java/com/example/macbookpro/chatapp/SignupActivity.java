@@ -64,18 +64,18 @@ public class SignupActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"회원 가입 클릭", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this,"회원 가입 클릭", Toast.LENGTH_SHORT).show();
 
                 //입력 값중에 null이 있으면
                 if(email.getText().toString() == null || name.getText().toString() == null || password.getText().toString() == null){
 
-                    Toast.makeText(getApplicationContext(),"빈칸을 입력해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this,"빈칸을 입력해주세요", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 //사진이 비었다면
                 if(profile.getDrawable() == null){
-                    Toast.makeText(getApplicationContext(), "사진을 선택해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "사진을 선택해주세요", Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -88,13 +88,13 @@ public class SignupActivity extends AppCompatActivity {
                         //가입한 유저의 uid를 가져 온다.
                         final String uid = task.getResult().getUser().getUid();
                         //파이어 베이스 저장소에 사진 저장
-                        Toast.makeText(getApplicationContext(),"파베 가입 함수", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this,"파베 가입 함수", Toast.LENGTH_SHORT).show();
 
                         FirebaseStorage.getInstance().getReference().child("userImages").child(uid).putFile(imageUri).addOnCompleteListener(
                                 new OnCompleteListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                                Toast.makeText(getApplicationContext(),"파베 사진저장", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this,"파베 사진저장", Toast.LENGTH_SHORT).show();
                                 @SuppressWarnings("VisibleForTests")
                                 String imageUrl = task.getResult().getDownloadUrl().toString();
                                 //데이터를 담을 모델을 만든다

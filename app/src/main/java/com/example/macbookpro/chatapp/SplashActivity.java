@@ -83,6 +83,9 @@ public class SplashActivity extends AppCompatActivity {
         }else {
             //remote_config 적용이 안되어 있으면 바로 로그인 창열기
             startActivity(new Intent(this,LoginActivity.class));
+
+            //로그인창 열고 자신은 종료
+            finish();
         }
 
     }

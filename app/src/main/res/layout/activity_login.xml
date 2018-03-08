@@ -29,6 +29,7 @@
             android:hint="비밀번호"
             android:id="@+id/loginActivity_edittext_password"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
 
