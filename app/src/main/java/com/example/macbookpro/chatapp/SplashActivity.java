@@ -1,11 +1,13 @@
 package com.example.macbookpro.chatapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +26,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //상태바 없애기
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //객체생성
         linearLayout = (LinearLayout)findViewById(R.id.splashactivity_linearlayout);
@@ -75,6 +80,9 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
                 builder.create().show();
+        }else {
+            //remote_config 적용이 안되어 있으면 바로 로그인 창열기
+            startActivity(new Intent(this,LoginActivity.class));
         }
 
     }
