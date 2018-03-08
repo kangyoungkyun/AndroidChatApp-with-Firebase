@@ -6,4 +6,5 @@ package com.example.macbookpro.chatapp.model;
 
 public class UserModel {
     public String userName;
+    public String profileImage;
 }
